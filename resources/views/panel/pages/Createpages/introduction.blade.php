@@ -18,27 +18,37 @@
                                  <label>Placement</label>
                                  <input name="placement" class="form-control" placeholder="Placement no" value="">
 
-                                 <label>Main Image</label>
+                                 <label>Main Image (600x1200)</label>
                                  <select name="Pageimage[]" class="form-control">
-                                          <option value="0" >none</option>
+
                                           @foreach($images as $image)
                                                 <option value="{{$image->id}}" >{{$image->name}}</option>
                                            @endforeach
                                  </select>
-                                  <label>Sub Image 1</label>
+                                  <label>Sub Image 1 (150x50)</label>
                                   <select name="Pageimage[]" class="form-control">
-                                          <option value="0" >none</option>
+
                                           @foreach($images as $image)
                                                 <option value="{{$image->id}}" >{{$image->name}}</option>
                                            @endforeach
                                  </select>
-                                 <label>Sub Image 2</label>
+
+                                    <label>Link of Sub Image 1 </label>
+                                    <input name="Pagelinks[0][href]" class="form-control" placeholder="link" value="">
+                                    <input name="Pagelinks[0][name]" class="form-control" placeholder="link" value="" type="hidden">
+
+                                 <label>Sub Image 2 (150x50)</label>
                                  <select name="Pageimage[]" class="form-control">
-                                          <option value="0" >none</option>
+
                                           @foreach($images as $image)
                                                 <option value="{{$image->id}}" >{{$image->name}}</option>
                                            @endforeach
                                  </select>
+
+                                    <label>Link of Sub Image 1 </label>
+                                    <input name="Pagelinks[1][href]" class="form-control" placeholder="link" value="">
+                                    <input name="Pagelinks[1][name]" class="form-control" placeholder="link" value="" type="hidden">
+
                             </div>
 
 
@@ -64,7 +74,7 @@
                                     </div>
                                     <div id="collapse{{$i}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
-                                            <label>Title</label>
+                                            <label>Character or number</label>
                                        <input name="title[]" class="form-control" placeholder="title" value="">
 
                                        <label>Content</label>

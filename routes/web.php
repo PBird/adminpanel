@@ -11,14 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/panel',function(){
-
-    return view('panel.pages.index');
-});
+Route::get('/', 'SiteController@index');
 
 
 Route::prefix('/panel')->group(function () {
@@ -33,7 +26,10 @@ Route::prefix('/panel')->group(function () {
         Route::get('create','PageController@create')->name('page.create');
         Route::get('Pagecreate','PageController@Pagecreate')->name('page.Pagecreate');
         Route::post('store','PageController@store')->name('page.store');
-
+        Route::get('index','PageController@index')->name('page.index');
+        Route::get('{page}/edit','PageController@edit')->name('page.edit');
+        Route::get('{page}/delete','PageController@destroy')->name('page.delete');
+        Route::post('{page}/update','PageController@update')->name('page.update');
 
     });
 

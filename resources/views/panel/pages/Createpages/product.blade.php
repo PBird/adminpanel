@@ -18,7 +18,6 @@
 
 
 
-
                             </div>
 
 
@@ -45,13 +44,38 @@
                                     <div id="collapse{{$i}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
                                         <div class="panel-body">
 
-                                            <label>Author </label>
+                                            <label>Product Name </label>
                                        <input name="title[]" class="form-control" placeholder="Name" value="">
 
 
-                                       <label> Comment </label>
+                                       <label> Information of product </label>
                                        <textarea rows="4" name="content[]" class="form-control" placeholder="Content"></textarea>
 
+                                        <label>Price </label>
+                                       <input name="icon[{{$i}}][0][name]" class="form-control" placeholder="icon" value="" type="hidden">
+                                        <input name="icon[{{$i}}][0][description]" value="">
+
+                                        <label>Per </label>
+                                       <input name="icon[{{$i}}][1][name]" class="form-control" placeholder="icon" value="" type="hidden">
+                                        <input name="icon[{{$i}}][1][description]" value="">
+
+
+                                     @for( $j=0; $j< 4; $j++ )
+
+                                       <label>Property {{$j+1}} </label>
+                                       <input name="icon[{{$i}}][{{$j+2}}][name]" class="form-control" placeholder="icon" value="">
+                                       <label>Description of Property {{$j+1}} </label>
+                                        <input name="icon[{{$i}}][{{$j+2}}][description]" value="">
+                                      @endfor
+
+                                        @for( $j=0; $j< 1; $j++ )
+                                        <label> Button href </label>
+                                        <input name="link[{{$i}}][{{$j}}][href]" class="form-control" placeholder="link" value="">
+                                        <label> Button Name </label>
+                                        <input name="link[{{$i}}][{{$j}}][name]" class="form-control" placeholder="link" value="" >
+
+
+                                        @endfor
 
 
                                        <fieldset id="group{{$i}}">

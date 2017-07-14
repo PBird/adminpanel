@@ -245,8 +245,12 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Pages <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <a href="{{route('page.index')}}">Show Pages</a>
+                                </li>
+                                <li>
                                     <a href="{{route('page.create')}}">Create Page</a>
                                 </li>
+
                             </ul>
 
                         </li>

@@ -32,4 +32,24 @@ class page extends Model
   {
     return $this->hasOne('App\nav');
   }
+
+  public function delete()
+{
+    $features =$this->features;
+    $this->features()->delete();
+    $this->buttons()->delete();
+     foreach ($features as $feature) {
+       $feature->pages()->detach();
+       $feature->images()->detach();
+       $feature->buttons()->delete();
+
+    }
+    $this->images()->detach(); // DELETE * FROM files WHERE user_id = ? query
+
+    parent::delete();
+}
+
+
+
+
 }

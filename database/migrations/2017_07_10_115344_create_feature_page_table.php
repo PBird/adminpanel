@@ -17,6 +17,7 @@ class CreateFeaturePageTable extends Migration
             $table->increments('id');
             $table->integer('feature_id');
             $table->integer('page_id');
+
         });
     }
 

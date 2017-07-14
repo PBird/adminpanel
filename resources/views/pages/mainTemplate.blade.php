@@ -1,38 +1,39 @@
-@extends('site.layouts.master')
+@extends('layouts.master')
 
 @section('head')
 
-    @include('site.pages.head')
+    @include('pages.head')
 
 @endsection('head')
 
 @section('header')
 
-    @include('site.pages.nav')
-    @include('site.pages.hero');
+    @include('pages.nav')
+    @include('pages.hero')
 
 @endsection('header')
 
 @section('body')
 
 
+    @foreach($pages as $page)
 
-    @include('site.pages.feature')
+        <?php $pageTempname= $page->template->file_name ?>
+        @include('pages.'.$pageTempname)
 
-    @include('site.pages.meals')
 
-    @include('site.pages.works')
 
-    @include('site.pages.cities')
+    @endforeach
 
-    @include('site.pages.testimonials')
+@section('footer')
 
-    @include('site.pages.plans')
+    @include('pages.footer')
 
-    @include('site.pages.form')
+@endsection('footer')
 
-    @include('site.pages.footer')
 
-    @include('site.pages.scripts')
+
+
+
 
 @endsection('body')

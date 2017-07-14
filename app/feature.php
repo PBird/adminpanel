@@ -8,7 +8,7 @@ class feature extends Model
 {
     //
 
-    protected $fillable=['title','description','Status' ];
+    protected $fillable=['title','content','Status' ];
 
 
      public function images()
@@ -28,4 +28,10 @@ class feature extends Model
     {
         return $this->morphMany('App\button', 'buttonable');
     }
+
+
+
+
+
+
 }

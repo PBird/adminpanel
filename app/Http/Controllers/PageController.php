@@ -7,6 +7,7 @@ use App\template;
 use App\nav;
 use App\image;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PageController extends Controller
 {
@@ -18,6 +19,10 @@ class PageController extends Controller
     public function index()
     {
         //
+
+        $pages = page::all();
+
+        return view('panel.pages.page_showall')->with('pages',$pages);
     }
 
     /**
@@ -55,6 +60,7 @@ class PageController extends Controller
     public function store(Request $request)
     {
 
+
          $this->validate($request,
             [
                 'placement' => 'required|unique:pages'
@@ -78,12 +84,12 @@ class PageController extends Controller
         $featurelength = count($featureTitle);
         $icons = $request->input('icon');
         $pageImages= $request->input('Pageimage');
+        $pageLinks= $request->input('Pagelinks');
         $featureImages= $request->input('Featureimage');
         $links = $request->input('link');
 
         if($pageImages)
             foreach ($pageImages as $key => $pageImage) {
-                if($pageImage>0)
                     {
                         $image= image::find($pageImage);
                         $page->images()->save($image);
@@ -91,16 +97,16 @@ class PageController extends Controller
 
                 }
 
+          if($pageLinks)
+            foreach ($pageLinks as $key => $pageLink) {
+                    {
+                        $href = $pageLink['href'];
+                        $name= $pageLink['name'];
+                        $page->buttons()->create(['name'=> $name, 'href' => $href]);
+                    }
 
-         // if($featureImages)
-         //    foreach ($featureImages as $key => $featureImage) {
-         //        if($featureImage>0)
-         //            {
-         //                $image= image::find($featureImage);
-         //                $feature->images()->save($image);
-         //            }
+                }
 
-         //        }
 
 
         for($i=0;$i<$featurelength;$i++)
@@ -146,7 +152,7 @@ class PageController extends Controller
        }
 
 
-       return back()->with('success', 'Updated Successfully')->withInput();
+       return back()->with('success', 'Created Successfully')->withInput();
 
     }
 
@@ -169,7 +175,13 @@ class PageController extends Controller
      */
     public function edit(page $page)
     {
-        //
+
+
+        $navs=nav::all();
+        $images=image::all();
+
+        return view('panel.pages.Updatepages.chooseUpdateTemp')->with('page', $page)->with('navs',$navs)->with('images',$images);
+
     }
 
     /**
@@ -181,7 +193,100 @@ class PageController extends Controller
      */
     public function update(Request $request, page $page)
     {
-        //
+           $this->validate($request,
+            [
+                'placement' => Rule::unique('pages')->ignore($page->id)
+
+            ]);
+
+            $pageData['title']=$request->input('Pagetitle');
+            $pageData['description']=$request->input('Pagedescription');
+            $pageData['placement']=$request->input('placement');
+            $pageData['status'] = $request->input('status');
+
+            $page->update($pageData);
+
+            $featureTitle =  $request->input('title');
+            $featureContent = $request->input('content');
+            $featureStatus = $request->input('statusFeature');
+
+            $featurelength = count($featureTitle);
+            $icons = $request->input('icon');
+            $pageImages= $request->input('Pageimage');
+            $pageLinks= $request->input('Pagelinks');
+            $featureImages= $request->input('Featureimage');
+            $links = $request->input('link');
+
+            if($pageImages)
+            {
+                $page->images()->detach();
+                $page->images()->attach($pageImages);
+            }
+
+            if($pageLinks)
+          {
+                $page->buttons()->delete();
+           foreach ($pageLinks as $key => $pageLink) {
+                    {
+                        $href = $pageLink['href'];
+                        $name= $pageLink['name'];
+                        $page->buttons()->create(['name'=> $name, 'href' => $href]);
+                    }
+
+                }
+            }
+
+
+            foreach ($page->features as $key => $feature)
+        {
+             $feature->update( ['title'=> $featureTitle[$key], 'content' => $featureContent[$key], 'Status'=> $featureStatus[$key] ] );
+
+
+
+               if($feature->icons()->exists())
+                   {
+                         $feature->icons()->delete();
+                        for($j=0;$j<count($icons[$key]);$j++)
+                            {
+
+                                $iconName= $icons[$key][$j]['name'];
+                                $iconDesc = $icons[$key][$j]['description'];
+                                $feature->icons()->create(['name' => $iconName, 'description' => $iconDesc]);
+
+                            }
+                    }
+
+                if($feature->buttons()->exists())
+                    {
+                        $feature->buttons()->delete();
+                        for($j=0;$j<count($links[$key]);$j++)
+                            {
+                                $href = $links[$key][$j]['href'];
+                                $name = $links[$key][$j]['name'];
+                                $feature->buttons()->create(['href' => $href, 'name' => $name]);
+                        }
+
+                    }
+
+                       if($feature->images()->exists())
+                            $feature->images()->sync($featureImages[$key]);
+
+
+        }
+
+
+        $nav_id=$request->input('nav_id');
+
+        if($nav_id>0)
+       {
+            $nav=nav::find($nav_id);
+            $page->nav()->save($nav);
+       }
+
+
+
+       return back()->with('success', 'Updated Successfully')->withInput();
+
     }
 
     /**
@@ -192,6 +297,8 @@ class PageController extends Controller
      */
     public function destroy(page $page)
     {
-        //
+
+        $page->delete();
+        return back()->with('success','Deleted Successfully');
     }
 }
