@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2017 at 01:06 AM
+-- Generation Time: Jul 15, 2017 at 05:57 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -51,7 +51,18 @@ INSERT INTO `buttons` (`id`, `buttonable_id`, `buttonable_type`, `name`, `href`,
 (31, 17, 'App\\page', NULL, '#', '2017-07-12 16:05:40', '2017-07-12 16:05:40'),
 (50, 169, 'App\\feature', 'Sign up now', '#', '2017-07-13 15:27:01', '2017-07-13 15:27:01'),
 (51, 170, 'App\\feature', 'Sign up now', '#', '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
-(52, 171, 'App\\feature', 'Sign up now', '#', '2017-07-13 15:27:02', '2017-07-13 15:27:02');
+(52, 171, 'App\\feature', 'Sign up now', '#', '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
+(85, 0, 'App\\page', 'showu', '#ghgh', '2017-07-15 08:44:47', '2017-07-15 08:44:47'),
+(86, 0, 'App\\page', 'I m hungrhj', '#67', '2017-07-15 08:44:47', '2017-07-15 08:44:47'),
+(228, 172, 'App\\feature', 'eAbout us', '#', '2017-07-15 12:46:59', '2017-07-15 12:46:59'),
+(229, 173, 'App\\feature', 'eBlog', '#', '2017-07-15 12:46:59', '2017-07-15 12:46:59'),
+(230, 174, 'App\\feature', 'ePress', '#', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(231, 175, 'App\\feature', 'eIOS App', '#', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(232, 176, 'App\\feature', 'eAndroid App', '#deneme', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(233, 177, 'App\\feature', NULL, '#', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(234, 178, 'App\\feature', NULL, '#denmeb', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(235, 179, 'App\\feature', NULL, '#', '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(236, 180, 'App\\feature', NULL, '#', '2017-07-15 12:47:01', '2017-07-15 12:47:01');
 
 -- --------------------------------------------------------
 
@@ -73,10 +84,10 @@ CREATE TABLE `features` (
 --
 
 INSERT INTO `features` (`id`, `title`, `content`, `status`, `created_at`, `updated_at`) VALUES
-(58, 'UP TO 365 DAYS/YEAR', 'Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that\'s your style.', 1, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(59, 'READY IN 20 MINUTES', 'You\'re only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you\'re 100% happy.', 1, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(60, '100% ORGANIC', 'All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!', 1, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(61, 'ORDER ANYTHING', 'We don\'t limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It\'s up to you!', 1, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
+(58, 'UP TO 365 DAYS/YEAR', 'Never cook again! We really mean that. Our subscription plans include up to 365 days/year coverage. You can also choose to order more flexibly if that\'s your style.', 1, '2017-07-12 14:13:27', '2017-07-15 07:55:33'),
+(59, 'READY IN 20 MINUTES', 'You\'re only twenty minutes away from your delicious and super healthy meals delivered right to your home. We work with the best chefs in each town to ensure that you\'re 100% happy.', 1, '2017-07-12 14:13:27', '2017-07-15 07:55:33'),
+(60, '100% ORGANIC', 'All our vegetables are fresh, organic and local. Animals are raised without added hormones or antibiotics. Good for your health, the environment, and it also tastes better!', 1, '2017-07-12 14:13:27', '2017-07-15 07:55:33'),
+(61, 'ORDER ANYTHING', 'We don\'t limit your creativity, which means you can order whatever you feel like. You can also choose from our menu containing over 100 delicious meals. It\'s up to you!', 1, '2017-07-12 14:13:27', '2017-07-15 07:55:33'),
 (62, '1', 'Choose the subscription plan that best fits your needs and sign up today.', 1, '2017-07-12 14:28:00', '2017-07-12 14:28:00'),
 (63, '2', 'Order your delicious meal using our mobile app or website. Or you can even call us!', 1, '2017-07-12 14:28:00', '2017-07-12 14:28:00'),
 (64, '3', 'Enjoy your meal after less than 20 minutes. See you the next time!', 1, '2017-07-12 14:28:01', '2017-07-12 14:28:01'),
@@ -97,7 +108,16 @@ INSERT INTO `features` (`id`, `title`, `content`, `status`, `created_at`, `updat
 (159, 'Milton Chapman', 'I was looking for a quick and easy food delivery service in San Franciso. I tried a lot of them and ended up with Omnifood. Best food delivery service in the Bay Area. Keep up the great work!', 1, '2017-07-13 08:54:30', '2017-07-13 08:54:30'),
 (169, 'PREMIUM', 'That’s only 13.30$ per meal', 1, '2017-07-13 15:27:01', '2017-07-13 15:27:01'),
 (170, 'PRO', 'That’s only 14.90$ per meal', 1, '2017-07-13 15:27:01', '2017-07-13 15:27:01'),
-(171, 'STARTER', NULL, 1, '2017-07-13 15:27:02', '2017-07-13 15:27:02');
+(171, 'STARTER', NULL, 1, '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
+(172, NULL, NULL, 1, '2017-07-15 10:31:03', '2017-07-15 12:46:59'),
+(173, NULL, NULL, 1, '2017-07-15 10:32:06', '2017-07-15 12:46:59'),
+(174, NULL, NULL, 1, '2017-07-15 10:32:07', '2017-07-15 12:46:59'),
+(175, NULL, NULL, 1, '2017-07-15 10:32:11', '2017-07-15 12:47:00'),
+(176, NULL, NULL, 1, '2017-07-15 10:32:13', '2017-07-15 12:47:00'),
+(177, NULL, NULL, 1, '2017-07-15 10:32:15', '2017-07-15 12:47:00'),
+(178, NULL, NULL, 1, '2017-07-15 10:32:16', '2017-07-15 12:47:00'),
+(179, NULL, NULL, 1, '2017-07-15 10:32:18', '2017-07-15 12:47:00'),
+(180, NULL, NULL, 1, '2017-07-15 10:32:20', '2017-07-15 12:47:00');
 
 -- --------------------------------------------------------
 
@@ -140,7 +160,16 @@ INSERT INTO `feature_page` (`id`, `feature_id`, `page_id`) VALUES
 (159, 159, 48),
 (169, 169, 52),
 (170, 170, 52),
-(171, 171, 52);
+(171, 171, 52),
+(172, 172, 1),
+(173, 173, 1),
+(174, 174, 1),
+(175, 175, 1),
+(176, 176, 1),
+(177, 177, 1),
+(178, 178, 1),
+(179, 179, 1),
+(180, 180, 1);
 
 -- --------------------------------------------------------
 
@@ -162,10 +191,6 @@ CREATE TABLE `icons` (
 --
 
 INSERT INTO `icons` (`id`, `feature_id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(57, 58, 'ion-ios-infinite-outline', NULL, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(58, 59, 'ion-ios-stopwatch-outline', NULL, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(59, 60, 'ion-ios-nutrition-outline', NULL, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
-(60, 61, 'ion-ios-nutrition-outline', NULL, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
 (61, 101, 'ion-ios-person', '1600+ happy eaters', '2017-07-12 16:05:39', '2017-07-12 16:05:39'),
 (62, 101, 'ion-ios-star', '60+ top chefs', '2017-07-12 16:05:39', '2017-07-12 16:05:39'),
 (63, 101, 'ion-social-twitter', '@omnifood_lx', '2017-07-12 16:05:39', '2017-07-12 16:05:39'),
@@ -195,7 +220,15 @@ INSERT INTO `icons` (`id`, `feature_id`, `name`, `description`, `created_at`, `u
 (193, 171, 'ion-ios-checkmark-empty', '1 meal', '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
 (194, 171, 'ion-ios-checkmark-empty', 'Order from 8 am to 12 pm', '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
 (195, 171, 'ion-ios-close-empty', NULL, '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
-(196, 171, 'ion-ios-checkmark-empty', 'Free delivery', '2017-07-13 15:27:02', '2017-07-13 15:27:02');
+(196, 171, 'ion-ios-checkmark-empty', 'Free delivery', '2017-07-13 15:27:02', '2017-07-13 15:27:02'),
+(197, 58, 'ion-ios-infinite-outline', NULL, '2017-07-15 07:55:33', '2017-07-15 07:55:33'),
+(198, 59, 'ion-ios-stopwatch-outline', NULL, '2017-07-15 07:55:33', '2017-07-15 07:55:33'),
+(199, 60, 'ion-ios-nutrition-outline', NULL, '2017-07-15 07:55:33', '2017-07-15 07:55:33'),
+(200, 61, 'ion-ios-nutrition-outline', NULL, '2017-07-15 07:55:33', '2017-07-15 07:55:33'),
+(266, 177, 'ion-social-facebook', NULL, '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(267, 178, 'ion-social-twitter', NULL, '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(268, 179, 'ion-social-googleplus', NULL, '2017-07-15 12:47:00', '2017-07-15 12:47:00'),
+(269, 180, 'ion-social-instagram', NULL, '2017-07-15 12:47:01', '2017-07-15 12:47:01');
 
 -- --------------------------------------------------------
 
@@ -234,7 +267,10 @@ INSERT INTO `imageables` (`image_id`, `imageable_id`, `imageable_type`, `created
 (18, 112, 'App\\feature', NULL, NULL),
 (19, 157, 'App\\feature', NULL, NULL),
 (20, 158, 'App\\feature', NULL, NULL),
-(21, 159, 'App\\feature', NULL, NULL);
+(21, 159, 'App\\feature', NULL, NULL),
+(10, 0, 'App\\page', NULL, NULL),
+(20, 0, 'App\\page', NULL, NULL),
+(19, 0, 'App\\page', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -273,7 +309,10 @@ INSERT INTO `images` (`id`, `name`, `path`, `description`, `created_at`, `update
 (18, '8', 'resources/img/8.jpg', NULL, NULL, NULL),
 (19, 'customer-1', 'resources/img/customer-1.jpg', NULL, NULL, NULL),
 (20, 'customer-2', 'resources/img/customer-2.jpg', NULL, NULL, NULL),
-(21, 'customer-3', 'resources/img/customer-3.jpg', NULL, NULL, NULL);
+(21, 'customer-3', 'resources/img/customer-3.jpg', NULL, NULL, NULL),
+(22, 'herobackground', 'resources/css/img/hero.jpg', NULL, NULL, NULL),
+(23, 'logo-white', 'resources/img/logo-white.png', NULL, NULL, NULL),
+(24, 'logo', 'resources/img/logo.png', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -341,6 +380,8 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `template_id`, `title`, `description`, `placement`, `status`, `created_at`, `updated_at`) VALUES
+(0, 0, 'GOODBY JUNK FOOD.  <br>               HELLO SUPER HEALTHY MEALS.', NULL, NULL, 0, NULL, '2017-07-15 08:41:28'),
+(1, 0, 'Copyright © 2015 by Omnifood. All rights reserved.', NULL, NULL, 0, NULL, '2017-07-15 12:16:07'),
 (16, 3, 'GET FOOD FAST — NOT FAST FOOD.', 'Hello, we’re Omnifood, your new premium food delivery service. We know you’re always busy. No time for cooking. So let us take care of that, we’re really good at it, we promise!', 1, 1, '2017-07-12 14:13:27', '2017-07-12 14:13:27'),
 (17, 1, 'HOW IT WORKS — SIMPLE AS 1, 2, 3', NULL, 4, 1, '2017-07-12 14:28:00', '2017-07-12 14:28:00'),
 (30, 2, 'WE\'RE CURRENTLY IN THESE CITIES', NULL, 3, 1, '2017-07-12 16:05:39', '2017-07-12 16:05:39'),
@@ -486,27 +527,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `buttons`
 --
 ALTER TABLE `buttons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=237;
 --
 -- AUTO_INCREMENT for table `features`
 --
 ALTER TABLE `features`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 --
 -- AUTO_INCREMENT for table `feature_page`
 --
 ALTER TABLE `feature_page`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 --
 -- AUTO_INCREMENT for table `icons`
 --
 ALTER TABLE `icons`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=455;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -521,7 +562,7 @@ ALTER TABLE `navs`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 --
 -- AUTO_INCREMENT for table `templates`
 --

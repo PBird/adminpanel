@@ -3,8 +3,8 @@
 
                 <div class="row">
 
-                    <img src="resources/img/logo-white.png" alt="Omnifood logo" class="logo" >
-                    <img src="resources/img/logo.png" alt="Omnifood logo" class="logo-black" >
+                    <img src="{{App\page::find(0)->images->get(1)->path}}" alt="Omnifood logo" class="logo" >
+                    <img src="{{App\page::find(0)->images->get(2)->path}}" alt="Omnifood logo" class="logo-black" >
 
                     <ul class="main-nav">
 

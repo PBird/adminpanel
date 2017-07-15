@@ -20,7 +20,7 @@ class PageController extends Controller
     {
         //
 
-        $pages = page::all();
+        $pages = page::where('id','>','2')->get();
 
         return view('panel.pages.page_showall')->with('pages',$pages);
     }
@@ -176,11 +176,20 @@ class PageController extends Controller
     public function edit(page $page)
     {
 
-
         $navs=nav::all();
         $images=image::all();
 
         return view('panel.pages.Updatepages.chooseUpdateTemp')->with('page', $page)->with('navs',$navs)->with('images',$images);
+
+    }
+    public function customize($page)
+    {
+
+
+        $navs=nav::all();
+        $images=image::all();
+
+        return view('panel.pages.Updatepages.customize')->with('page', $page)->with('navs',$navs)->with('images',$images);
 
     }
 

@@ -259,22 +259,14 @@
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Customize <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Header</a>
+                                    <a href="{{route('customize',['page' => 'hero'])}}">Header</a>
                                 </li>
                                 <li>
-                                    <a href="#">Slayt</a>
-                                </li>
-                                <li>
-                                    <a href="#">Customer Feedback</a>
-                                </li>
-                                <li>
-                                    <a href="#">Footer</a>
+                                    <a href="{{route('customize',['page' => 'footer'])}}">Footer</a>
                                 </li>
                             </ul>
 
                         </li>
-
-
 
 
                             <!-- /.nav-second-level -->

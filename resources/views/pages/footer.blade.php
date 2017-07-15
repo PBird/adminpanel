@@ -5,12 +5,17 @@
 
                   <ul class="footer-nav">
 
-                      <li> <a href="#"> About us </a> </li>
-                      <li> <a href="#"> Blog </a> </li>
-                      <li> <a href="#"> Press </a> </li>
-                      <li> <a href="#"> IOS App </a> </li>
-                      <li> <a href="#"> Android App </a> </li>
 
+                  <?php
+                        $features = App\page::find(1)->features()->whereStatus(1)->get();
+                    ?>
+
+                    @foreach($features as $key=>$feature)
+
+                      <li> <a href="{{$feature->buttons->get(0)->href}}"> {{$feature->buttons->get(0)->name }} </a> </li>
+                      @break($features->get($key+1)->icons()->exists())
+
+                      @endforeach
                   </ul>
               </div>
 
@@ -18,11 +23,11 @@
 
                   <ul class="social-links">
 
-
-                      <li> <a href="#"><i class="ion-social-facebook"></i>  </a> </li>
-                      <li> <a href="#"><i class="ion-social-twitter"></i>  </a> </li>
-                      <li> <a href="#"><i class="ion-social-googleplus"></i>  </a> </li>
-                      <li> <a href="#"><i class="ion-social-instagram"></i>  </a> </li>
+                  @foreach($features as $key => $feature)
+                    @if($feature->icons()->exists())
+                      <li> <a href="{{$feature->buttons->get(0)->href }}"><i class="{{$feature->icons->get(0)->name }}"></i>  </a> </li>
+                     @endif
+                  @endforeach
 
 
 
@@ -37,7 +42,7 @@
           <div class="row">
             <p>
 
-                Copyright &copy; 2015 by Omnifood. All rights reserved.
+                {!!App\page::find(1)->title!!}
 
             </p>
           </div>

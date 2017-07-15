@@ -34,6 +34,14 @@ Route::prefix('/panel')->group(function () {
     });
 
 
+    Route::prefix('/customize')->group(function () {
+
+    Route::get('{page}','PageController@customize')->name('customize');
+
+
+
+    });
+
 
 
 

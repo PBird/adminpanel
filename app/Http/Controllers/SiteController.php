@@ -16,8 +16,7 @@ class SiteController extends Controller
     public function index()
     {
         //
-        $pages = page::whereStatus(1)->orderBy('placement','asc')->get();
-
+        $pages = page::where('id','>','2')->whereStatus(1)->orderBy('placement','asc')->get();
         return view('pages.mainTemplate')->with('pages',$pages);
 
     }
@@ -86,5 +85,8 @@ class SiteController extends Controller
     public function destroy($id)
     {
         //
+
+
+
     }
 }

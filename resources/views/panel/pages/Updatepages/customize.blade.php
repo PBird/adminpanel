@@ -32,11 +32,10 @@
                 <div class="col-lg-12">
                 @include('panel.layouts.errors')
                 @include('panel.layouts.confirm')
-                <form method="post" action="{{route('page.update',['page'=> $page->id])}}">
-                      {{csrf_field()}}
+
                         <div class="form-group">
 
-                        @include('panel.pages.Updatepages.'.$page->template->file_name );
+                        @include('panel.pages.Updatepages.'.$page);
 
                 </div>
                 </div>
