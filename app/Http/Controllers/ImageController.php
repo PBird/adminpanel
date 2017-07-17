@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\image;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic;
+
 class ImageController extends Controller
 {
     /**
@@ -15,6 +18,8 @@ class ImageController extends Controller
     public function index()
     {
         //
+        $images = image::all();
+        return view('panel.pages.image_showall')->with('images',$images);
     }
 
     /**
@@ -25,6 +30,7 @@ class ImageController extends Controller
     public function create()
     {
         //
+        return view('panel.pages.image_upload');
     }
 
     /**
@@ -36,6 +42,24 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //
+        $image = ImageManagerStatic::make(Input::file('image'));
+
+        $filename = $request->file('image')->getClientOriginalName();
+        $file = explode('.', $filename);
+        $extent = $file[1];
+        $name = $file[0];
+        $path = 'resources/img/'.$name.time().'.'.$extent;
+        $description = $request->description;
+
+        $image->save($path);
+
+        image::create([ 'name' => $name , 'path' =>  $path , 'description' => $description   ]);
+
+
+        return back()->with('success','Image Uploaded Successfully');
+
+
+
     }
 
     /**
@@ -80,6 +104,9 @@ class ImageController extends Controller
      */
     public function destroy(image $image)
     {
-        //
+
+         $image->delete();
+
+         return back()->with('success', 'Deleted Succcessfully');
     }
 }

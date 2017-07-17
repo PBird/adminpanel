@@ -15,6 +15,8 @@ class NavController extends Controller
     public function index()
     {
         //
+        $navs = nav::all();
+        return view('panel.pages.nav_show')->with('navs',$navs);
     }
 
     /**
@@ -25,6 +27,8 @@ class NavController extends Controller
     public function create()
     {
         //
+
+        return view('panel.pages.Createpages.nav_create');
     }
 
     /**
@@ -36,6 +40,11 @@ class NavController extends Controller
     public function store(Request $request)
     {
         //
+
+
+        nav::create($request->all());
+
+        return back()->with('success','Created Succesfully');
     }
 
     /**
@@ -58,6 +67,8 @@ class NavController extends Controller
     public function edit(nav $nav)
     {
         //
+
+        return view('panel.pages.Updatepages.nav_update')->with('nav',$nav);
     }
 
     /**
@@ -69,7 +80,10 @@ class NavController extends Controller
      */
     public function update(Request $request, nav $nav)
     {
-        //
+
+        $nav->update($request->all());
+
+        return back()->with('success','Updated Succesfully');
     }
 
     /**
@@ -80,6 +94,8 @@ class NavController extends Controller
      */
     public function destroy(nav $nav)
     {
-        //
+         $nav->delete();
+
+         return back()->with('success','Deleted Succesfully');
     }
 }

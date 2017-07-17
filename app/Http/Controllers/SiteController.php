@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\page;
+use App\nav;
 
 class SiteController extends Controller
 {
@@ -17,7 +18,8 @@ class SiteController extends Controller
     {
         //
         $pages = page::where('id','>','2')->whereStatus(1)->orderBy('placement','asc')->get();
-        return view('pages.mainTemplate')->with('pages',$pages);
+        $navs = nav::whereStatus(1)->get();
+        return view('pages.mainTemplate')->with('pages',$pages)->with('navs',$navs);
 
     }
 

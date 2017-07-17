@@ -238,7 +238,7 @@
                             <a href={{url('adminpanel/index')}}><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                          <li>
-                            <a href=><i class="fa fa-dashboard fa-fw"></i> Navigations </a>
+                            <a href="{{route('navs.show')}}"><i class="fa fa-dashboard fa-fw"></i> Navigations </a>
                         </li>
 
                         <li>
@@ -268,7 +268,9 @@
 
                         </li>
 
-
+                        <li>
+                            <a href="{{route('image.show')}}"><i class="fa fa-dashboard fa-fw"></i> Media </a>
+                        </li>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>

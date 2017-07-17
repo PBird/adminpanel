@@ -16,6 +16,17 @@
             margin:10px auto;
 
         }
+        #createbtn {
+
+          margin-left:8px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          float:right;
+          padding: 10px 10px 10px 10px;
+
+
+
+        }
 
   </style>
 
@@ -33,45 +44,38 @@
 @include('panel.layouts.errors')
 @include('panel.layouts.confirm')
                          <div class="panel-body">
+                         <a type="button" class="btn btn-success" id="createbtn" href="{{route('nav.create')}}">Create New</a>
+
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Id </th>
-                                        <th>Template</th>
-                                        <th>Title</th>
-                                        <th>NavTag</th>
+
+                                        <th>Name</th>
+                                        <th>Associated Page</th>
+                                        <th>Tag</th>
                                         <th>Created</th>
                                         <th>Updated</th>
                                         <th>Status</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                  @foreach($pages as $page)
+                                  @foreach($navs as $nav)
 
                                    <tr class="odd gradeX">
-                                    <td> {{$page->id}}
-                                       </td>
-                                          <td>{{$page->template->name}}</td>
-                                          <td>{{str_limit($page->title,15) }}</td>
-                                          @if($page->nav()->exists())
-                                          <td>{{$page->nav->name}}</td>
-                                          @else
-                                          <td> none </td>
-                                          @endif
-
-                                          <td>{{$page->created_at}}</td>
-                                         <td>{{$page->updated_at}}</td>
-
-
-
+                                          <td>{{$nav->name}}</td>
+                                          <td>{{$nav->page_id}}</td>
+                                          <td>{{$nav->tag}}</td>
+                                          <td>{{$nav->created_at}}</td>
+                                          <td>{{$nav->updated_at}}</td>
                                         <td>
-                                        @if($page->status==1)
+                                        @if($nav->status==1)
                                         <p class="fa fa-plus"> Active</p>
                                         @else <p class="fa fa-minus"> Passive </p>
                                         @endif </td>
-                                          <td> <a type="button" class="btn btn-warning" style="margin-right:8px" href="{{route('page.edit',['id' => $page->id ])}}">Edit</a>
-                                        <a type="button" class="btn btn-danger" href="{{route('page.delete',['page' => $page->id ])}}">Delete</a>  </td>
+                                          <td> <a type="button" class="btn btn-warning" style="margin-right:8px" href="{{route('nav.edit',['id' => $nav->id ])}}">Edit</a>
+                                        <a type="button" class="btn btn-danger" href="{{route('nav.delete',['nav' => $nav->id ])}}">Delete</a>  </td>
 
                                     </tr>
                                 @endforeach

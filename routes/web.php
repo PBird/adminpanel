@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', 'SiteController@index');
 
 
@@ -39,8 +40,28 @@ Route::prefix('/panel')->group(function () {
     Route::get('{page}','PageController@customize')->name('customize');
 
 
+    });
+
+    Route::prefix('/navigations')->group(function () {
+
+    Route::get('/','NavController@index')->name('navs.show');
+    Route::get('{nav}/edit','NavController@edit')->name('nav.edit');
+    Route::post('{nav}/update','NavController@update')->name('nav.update');
+    Route::get('/create','NavController@create')->name('nav.create');
+    Route::post('/create','NavController@store')->name('nav.store');
+    Route::get('{nav}/delete','NavController@destroy')->name('nav.delete');
 
     });
+     Route::prefix('/media')->group(function () {
+
+        Route::get('/','ImageController@index')->name('image.show');
+        Route::get('/uploadpage','ImageController@create')->name('image.upload');
+        Route::post('/upload','ImageController@store')->name('image.store');
+        Route::get('/{image}/delete','ImageController@destroy')->name('image.destroy');
+
+    });
+
+
 
 
 

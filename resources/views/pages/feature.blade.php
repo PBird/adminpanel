@@ -3,7 +3,7 @@
 
 
 if($page->nav()->exists())
-    $tag = '#'.$page->nav->tag;
+    $tag =$page->nav->tag;
 else
      $tag="#";
 
