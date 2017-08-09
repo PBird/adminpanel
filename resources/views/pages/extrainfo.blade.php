@@ -33,7 +33,7 @@ else
 
                     <div class="col span_1_of_{{$countFeature}} box">
 
-                        <img src="{{asset($feature->images->first()->path)}}" alt="{{asset($feature->images->first()->description)}}">
+                        <img @if($feature->images()->exists()) src="{{asset($feature->images->first()->path)}}" alt="{{asset($feature->images->first()->description)}}" @endif>
 
                         <h3> {{$feature->title}} </h3>
 
