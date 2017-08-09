@@ -21,7 +21,7 @@
                                  <label>Background Image</label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images->get(0)->id == $image->id) selected @endif>{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(0)->id == $image->id) selected @endif>{{$image->name}}</option>
                                            @endforeach
                                </select>
 
@@ -63,7 +63,7 @@
                                        <select name="Featureimage[{{$key}}][{{$j}}]" class="form-control">
 
                                                 @foreach($images as $image)
-                                                      <option value="{{$image->id}}" @if($feature->images->get(0)->id==$image->id) selected @endif>{{$image->name}}</option>
+                                                      <option value="{{$image->id}}" @if($feature->images()->exists() && $feature->images->get(0)->id==$image->id) selected @endif>{{$image->name}}</option>
                                                  @endforeach
                                        </select>
                                   @endfor

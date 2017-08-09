@@ -12,7 +12,7 @@ else
 ?>
 
 
-<section class="section-testimonials clearfix" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url({{$page->images->get(0)->path}}) ;">
+<section class="section-testimonials clearfix" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) @if($page->images()->exists()) , url({{$page->images->get(0)->path}}) ; @endif">
 
             <div class="row">
 
@@ -33,7 +33,7 @@ else
                         <blockquote>
 
                        {{$feature->content}}
-                        <cite> <img src="{{asset($feature->images->first()->path)}}"> {{ $feature->title}}</cite>
+                        <cite> <img @if($feature->images()->exists()) src="{{asset($feature->images->first()->path)}}" alt="{{$feature->images->first()->description}}" @endif > {{ $feature->title}}</cite>
                         </blockquote>
 
 

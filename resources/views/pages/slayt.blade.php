@@ -24,7 +24,7 @@ else
 
                 <li style="width:{{100/($countFeature/2.0)}}%">
                     <figure class="meal-photo">
-                        <img src="{{asset($feature->images->first()->path)}}" alt="{{$feature->images->first()->description}}">
+                        <img @if($feature->images()->exists()) src="{{asset($feature->images->first()->path)}}" alt="{{$feature->images->first()->description}}" @endif>
                     </figure>
                 </li>
 
@@ -46,7 +46,7 @@ else
 
                 <li style="width:{{100/($countFeature/2.0)}}%">
                     <figure class="meal-photo">
-                        <img src="{{asset($feature->images->first()->path)}}" alt="{{$feature->images->first()->description}}" >
+                        <img @if($feature->images()->exists()) src="{{asset($feature->images->first()->path)}}" alt="{{$feature->images->first()->description}}" @endif >
                     </figure>
                 </li>
 
