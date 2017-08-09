@@ -7,7 +7,8 @@
 
 
                   <?php
-                        $features = App\page::find(1)->features()->whereStatus(1)->get();
+                        $footer = App\page::findOrFail(2);
+                        $features = $footer->features()->whereStatus(1)->get();
                     ?>
 
                     @foreach($features as $key=>$feature)
@@ -42,7 +43,7 @@
           <div class="row">
             <p>
 
-                {!!App\page::find(1)->title!!}
+                {!!$footer->title!!}
 
             </p>
           </div>

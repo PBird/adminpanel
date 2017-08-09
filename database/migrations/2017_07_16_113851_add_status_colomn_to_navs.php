@@ -26,7 +26,7 @@ class AddStatusColomnToNavs extends Migration
     public function down()
     {
         Schema::table('navs', function (Blueprint $table) {
-            $table->dropColomn('status');
+            $table->dropColumn('status');
         });
     }
 }

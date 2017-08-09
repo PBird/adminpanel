@@ -65,6 +65,7 @@ class PageController extends Controller
     {
 
 
+
          $this->validate($request,
             [
                 'placement' => 'required|unique:pages'
@@ -95,10 +96,8 @@ class PageController extends Controller
         if($pageImages)
             foreach ($pageImages as $key => $pageImage) {
                     {
-                        $image= image::find($pageImage);
-                        $page->images()->save($image);
+                        $page->images()->attach($pageImage, ['id' => $key]);
                     }
-
                 }
 
           if($pageLinks)
@@ -115,7 +114,7 @@ class PageController extends Controller
 
         for($i=0;$i<$featurelength;$i++)
         {
-            $feature = $page->features()->create( ['title'=> $featureTitle[$i], 'content' => $featureContent[$i], 'Status'=> $featureStatus[$i] ] );
+            $feature = $page->features()->create( ['title'=> $featureTitle[$i], 'content' => $featureContent[$i], 'status'=> $featureStatus[$i] ] );
 
             for($j=0;$j<count($icons[$i]);$j++)
                 {
@@ -134,12 +133,21 @@ class PageController extends Controller
                 }
 
 
-                 for($j=0;$j<count($featureImages[$i]);$j++)
+                 // for($j=0;$j<count($featureImages[$i]);$j++)
+                 // {
+                 //    if($featureImages[$i][$j]>0)
+                 //    {
+                 //        $image= image::find($featureImages[$i][$j]);
+                 //         $feature->images()->save($image);
+
+                 //   }
+                 // }
+                  for($j=0;$j<count($featureImages[$i]);$j++)
                  {
                     if($featureImages[$i][$j]>0)
                     {
-                        $image= image::find($featureImages[$i][$j]);
-                         $feature->images()->save($image);
+                        $image= $featureImages[$i][$j];
+                         $feature->images()->attach($image, ['id' => $j]);
 
                    }
                  }
@@ -206,6 +214,10 @@ class PageController extends Controller
      */
     public function update(Request $request, page $page)
     {
+
+
+
+
            $this->validate($request,
             [
                 'placement' => Rule::unique('pages')->ignore($page->id)
@@ -230,12 +242,15 @@ class PageController extends Controller
             $featureImages= $request->input('Featureimage');
             $links = $request->input('link');
 
-            if($pageImages)
-            {
-                $page->images()->detach();
-                $page->images()->attach($pageImages);
+          if($pageImages)
+           {
+            $page->images()->detach();
+            foreach ($pageImages as $key => $pageImage) {
+                               {
+                                   $page->images()->attach($pageImage, ['id' => $key]);
+                               }
+                           }
             }
-
             if($pageLinks)
           {
                 $page->buttons()->delete();
@@ -252,7 +267,7 @@ class PageController extends Controller
 
             foreach ($page->features as $key => $feature)
         {
-             $feature->update( ['title'=> $featureTitle[$key], 'content' => $featureContent[$key], 'Status'=> $featureStatus[$key] ] );
+             $feature->update( ['title'=> $featureTitle[$key], 'content' => $featureContent[$key], 'status'=> $featureStatus[$key] ] );
 
 
 
@@ -281,8 +296,14 @@ class PageController extends Controller
 
                     }
 
-                       if($feature->images()->exists())
-                            $feature->images()->sync($featureImages[$key]);
+                  if($feature->images()->exists())
+                  {
+                        $feature->images()->detach();
+
+                        foreach ($featureImages[$key] as $k => $featureImage) {
+                            $feature->images()->attach($featureImage, ['id' => $k ]);
+                        }
+                  }
 
 
         }

@@ -1,8 +1,8 @@
-<form method="post" action="{{route('page.update',['page'=> 1])}}">
+<form method="post" action="{{route('page.update',['page'=> 2])}}">
                       {{csrf_field()}}
 
 
-                      <?php $page = App\page::find(1);?>
+                      <?php $page = App\page::find(2);?>
  <div class="form-group">
  <label style="font-size:125%;">Update Page</label>
  <br>

@@ -6,12 +6,14 @@ if($page->nav()->exists())
 else
      $tag="#";
 
- $mainimage= $page->images->get(0);
- $subimage1 = $page->images->get(1);
- $subimage2 = $page->images->get(2);
+if($page->images()->exists())
+{
+     $mainimage= $page->images->get(0);
+     $subimage1 = $page->images->get(1);
+     $subimage2 = $page->images->get(2);
+}
 
 ?>
-
 
 
 <section class="section-steps " id="{{$tag}}">
@@ -24,7 +26,7 @@ else
             </div>
             <div class="row clearfix">
 
-            @if($mainimage->id!=0)
+            @if(isset($mainimage))
                 <div class="col span_1_of_2 steps-box">
 
 
@@ -52,10 +54,10 @@ else
 
                     </div>
                 @endforeach
-                @if($subimage1->id!=0)
+                @if(isset($mainimage))
                     <a href="{{$page->buttons->first()->href}}" class="btn-app"> <img src="{{asset($subimage1->path)}}" alt="{{$subimage1->description}}">  </a>
                 @endif
-                @if($subimage2->id!=0)
+                @if(isset($mainimage))
                     <a href="{{$page->buttons->get(1)->href}}" class="btn-app"> <img src="{{asset($subimage2->path)}}" alt="{{$subimage2->description}}">  </a>
                 @endif
 

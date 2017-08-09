@@ -1,8 +1,8 @@
-<form method="post" action="{{route('page.update',['page'=> 0])}}">
+<form method="post" action="{{route('page.update',['page'=> 1])}}">
                       {{csrf_field()}}
 
 
-                      <?php $page = App\page::find(0);?>
+                      <?php $page = App\page::find(1);?>
  <div class="form-group">
  <label style="font-size:125%;">Update Page</label>
  <br>
@@ -26,21 +26,21 @@
                             <label>Background Image</label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images->get(0)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(0)->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 
                             <label> Logo </label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images->get(1)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(1)->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 
                             <label> Logo on Sticky</label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images->get(2)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(2)->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 

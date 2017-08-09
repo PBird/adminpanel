@@ -101,7 +101,7 @@
 
 
    <div class="form-group">
-                             <button type="submit" class="btn btn-success " id="update" > Create </button>
+                             <button type="submit" class="btn btn-success " id="update" > Update </button>
 
                               <fieldset id="groupp">
                                <div class="radio">

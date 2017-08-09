@@ -8,7 +8,7 @@ class feature extends Model
 {
     //
 
-    protected $fillable=['title','content','Status' ];
+    protected $fillable=['title','content','status' ];
 
 
      public function images()

@@ -1,7 +1,10 @@
 @yield('head')
     <body>
+<?php
+  $header = App\page::findOrFail(1);
 
-        <header style="background-image: linear-gradient( rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) ,url({{App\page::find(0)->images->get(0)->path}});">
+ ?>
+        <header style="background-image: linear-gradient( rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) @if($header->images()->exists()) , url('{{$header->images->get(0)->path}}');@endif " >
 
            @yield('header')
 

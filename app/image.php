@@ -12,6 +12,7 @@ class image extends Model
 
                                 'name',
                                 'path',
-                                'description'
+                                'description',
+
                            ];
 }

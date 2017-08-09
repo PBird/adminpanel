@@ -19,6 +19,14 @@ class SiteController extends Controller
         //
         $pages = page::where('id','>','2')->whereStatus(1)->orderBy('placement','asc')->get();
         $navs = nav::whereStatus(1)->get();
+
+        // if(count($pages)==0 || count($navs)==0)
+        // {
+        //     return "Please set up all configuration  from panel. ";
+
+        // }
+
+
         return view('pages.mainTemplate')->with('pages',$pages)->with('navs',$navs);
 
     }

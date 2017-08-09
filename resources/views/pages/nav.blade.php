@@ -1,11 +1,15 @@
 <nav >
+<?php
+  $header = App\page::findOrFail(1);
 
+ ?>
                 <div class="row">
 
-                    <img src="{{App\page::find(0)->images->get(1)->path}}" alt="Omnifood logo" class="logo" >
-                    <img src="{{App\page::find(0)->images->get(2)->path}}" alt="Omnifood logo" class="logo-black" >
+                    <img  @if($header->images()->exists()) src="{{$header->images->get(1)->path}}"  alt="{{$header->images->get(1)->description}}" @endif class="logo" >
+                    <img @if($header->images()->exists()) src="{{$header->images->get(2)->path}}"   alt="{{$header->images->get(2)->description}}" @endif class="logo-black" >
 
                     <ul class="main-nav js--main-nav">
+
 
                     @foreach($navs as $nav)
                         <li> <a href="#{{$nav->tag}}"  >{{$nav->name}}</a> </li>
