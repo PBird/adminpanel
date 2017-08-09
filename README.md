@@ -10,6 +10,8 @@ set .env file (fill database configs : DB_DATABASE=test2p....)
 
 > echo "create database test2p" | mysql -u root  //creating test2p  database for example
 
+> chmod -R 777 public/resources/img
+
 > chmod -R 777 storage/
 
 > chmod -R 777 bootstrap/cache/
