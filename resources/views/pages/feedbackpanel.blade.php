@@ -12,7 +12,7 @@ else
 ?>
 
 
-<section class="section-testimonials clearfix">
+<section class="section-testimonials clearfix" style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url({{$page->images->get(0)->path}}) ;">
 
             <div class="row">
 

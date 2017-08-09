@@ -17,6 +17,13 @@
                                  <label>Placement</label>
                                  <input name="placement" class="form-control" placeholder="Placement no" value="">
 
+                                   <label>Background Image</label>
+                                 <select name="Pageimage[]" class="form-control">
+                                          @foreach($images as $image)
+                                                <option value="{{$image->id}}" >{{$image->name}}</option>
+                                           @endforeach
+                               </select>
+
 
 
                             </div>

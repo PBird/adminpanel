@@ -18,6 +18,12 @@
                                  <label>Placement</label>
                                  <input name="placement" class="form-control" placeholder="Placement no" value="{{$page->placement}}">
 
+                                 <label>Background Image</label>
+                                 <select name="Pageimage[]" class="form-control">
+                                          @foreach($images as $image)
+                                                <option value="{{$image->id}}" @if($page->images->get(0)->id == $image->id) selected @endif>{{$image->name}}</option>
+                                           @endforeach
+                               </select>
 
 
                             </div>

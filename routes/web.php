@@ -12,6 +12,8 @@
 */
 
 
+
+
 Route::get('/', 'SiteController@index');
 
 
@@ -20,7 +22,7 @@ Route::prefix('/panel')->group(function () {
     Route::get('/',function(){
 
     return view('panel.pages.index');
-    });
+    })->middleware('auth')->name('home');
 
     Route::prefix('/page')->group(function () {
 
@@ -68,4 +70,7 @@ Route::prefix('/panel')->group(function () {
 
  });
 
+
+
+Auth::routes();
 
