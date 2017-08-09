@@ -22,7 +22,7 @@ Route::prefix('/panel')->group(function () {
     Route::get('/',function(){
 
     return view('panel.pages.index');
-    })->middleware('auth');
+    })->middleware('auth')->name('home');
 
     Route::prefix('/page')->group(function () {
 
@@ -74,4 +74,3 @@ Route::prefix('/panel')->group(function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

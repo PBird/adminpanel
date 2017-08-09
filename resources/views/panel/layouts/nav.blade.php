@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href={{url('adminpanel/index')}}>SB Admin v2.0</a>
+                <a class="navbar-brand" href={{route('home')}}>SB Admin v2.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -238,9 +238,6 @@
                             </span>
                             </div>
                             <!-- /input-group -->
-                        </li>
-                        <li>
-                            <a href={{url('adminpanel/index')}}><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                          <li>
                             <a href="{{route('navs.show')}}"><i class="fa fa-dashboard fa-fw"></i> Navigations </a>

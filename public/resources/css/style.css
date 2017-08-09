@@ -207,7 +207,7 @@ input[type=submit]:hover
 /* ------------------------------------------ */
 
 header {
-
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) ,url(img/hero.jpg);
      background-size :cover;
     background-position: center;
     height: 100vh;
@@ -277,6 +277,23 @@ header {
     border-bottom: 2px solid #e67e22
 }
 
+/* Mobile navi*/
+
+
+.mobile-nav-icon
+{
+    float:right;
+    margin-top: 30px;
+    cursor: pointer;
+    display: none;
+
+}
+
+.mobile-nav-icon i {
+    font-size: 200%;
+    color:white;
+
+}
 /* Sticky navi*/
 
 .sticky{
@@ -290,12 +307,12 @@ header {
 }
 
 .sticky .main-nav {
-    margin-top: 15px;
+    margin-top: 18px;
 }
 
 .sticky .main-nav li a:link,
 .sticky .main-nav li a:visited {
-    padding: 10px 0;
+    padding: 16px 0;
     color: #555;
 
 }
@@ -337,7 +354,6 @@ a:active {
 .section-meals
 {
     padding: 0;
-    margin-top: 0;
 
 }
 
@@ -497,11 +513,10 @@ a:active {
 
 .section-testimonials {
 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(img/back-customers.jpg) ;
+
     background-size: cover;
     color: #fff;
     background-attachment: fixed;
-    margin-top: 0px;
 }
 
 

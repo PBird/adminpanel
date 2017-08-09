@@ -24,7 +24,7 @@ class PageController extends Controller
     {
         //
 
-        $pages = page::where('id','>','2')->get();
+        $pages = page::where('id','>','2')->get(); // 0: footer, 1: header
 
         return view('panel.pages.page_showall')->with('pages',$pages);
     }
