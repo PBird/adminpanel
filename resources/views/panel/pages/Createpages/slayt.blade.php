@@ -25,7 +25,7 @@
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$i}} " aria-expanded="false" class="collapsed"> {{$i+1}}. Image </a>
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{$i}} " aria-expanded="false" class="collapsed"> {{$i+1}}. Image (800x600) </a>
                                         </h4>
                                     </div>
                                     <div id="collapse{{$i}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">

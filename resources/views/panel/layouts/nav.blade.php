@@ -273,8 +273,23 @@
                         <li>
                             <a href="{{route('image.show')}}"><i class="fa fa-dashboard fa-fw"></i> Media </a>
                         </li>
+
+
+                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Settings <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="">General</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('maintenance.show')}}">Maintenance </a>
+                                </li>
+                            </ul>
+
+                        </li>
                             <!-- /.nav-second-level -->
                         </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

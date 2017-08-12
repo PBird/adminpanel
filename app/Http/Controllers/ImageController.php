@@ -109,7 +109,8 @@ class ImageController extends Controller
      */
     public function destroy(image $image)
     {
-
+         $image->features()->detach();
+         $image->pages()->detach();
          $image->delete();
 
          return back()->with('success', 'Deleted Succcessfully');

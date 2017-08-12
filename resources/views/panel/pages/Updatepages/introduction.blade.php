@@ -22,14 +22,14 @@
                                  <select name="Pageimage[]" class="form-control">
 
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(0)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists()  && $page->images()->wherePivot('id','=','0')->first()!==null  && $page->images()->wherePivot('id','=','0')->first()->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                  </select>
                                   <label>Sub Image 1 (150x50)</label>
                                   <select name="Pageimage[]" class="form-control">
 
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(1)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists()  && $page->images()->wherePivot('id','=','1')->first()!==null && $page->images()->wherePivot('id','=','1')->first()->id==$image->id) selected @endif  >{{$image->name}}</option>
                                            @endforeach
                                  </select>
 
@@ -41,7 +41,7 @@
                                  <select name="Pageimage[]" class="form-control">
 
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(2)->id==$image->id) selected @endif> {{$image->name}} </option>
+                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images()->wherePivot('id','=','2')->first()!==null  && $page->images()->wherePivot('id','=','2')->first()->id==$image->id) selected @endif  > {{$image->name}} </option>
                                            @endforeach
                                  </select>
 

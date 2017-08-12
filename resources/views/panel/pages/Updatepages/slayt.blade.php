@@ -36,7 +36,7 @@
 
 
                                           @foreach($images as $k=>$image)
-                                                <option value="{{$image->id}}" @@if($feature->images()->exists() && $feature->images->get(0)->id==$image->id) selected @endif > {{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($feature->images()->exists() && $feature->images()->wherePivot('id','=','0')->first()!==null &&  $feature->images()->wherePivot('id','=','0')->first()->id==$image->id) selected @endif > {{$image->name}}</option>
                                            @endforeach
                                  </select>
                               @endfor

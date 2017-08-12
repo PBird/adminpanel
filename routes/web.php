@@ -13,16 +13,16 @@
 
 
 
-
 Route::get('/', 'SiteController@index');
 
 
-Route::prefix('/panel')->group(function () {
+
+Route::group(['prefix' => 'panel'],function () {
 
     Route::get('/',function(){
 
     return view('panel.pages.index');
-    })->middleware('auth')->name('home');
+    })->name('home')->middleware('auth');
 
     Route::prefix('/page')->group(function () {
 
@@ -63,12 +63,22 @@ Route::prefix('/panel')->group(function () {
 
     });
 
+    Route::prefix('/settings')->group(function () {
 
+         Route::get('/maintenance','SettingController@ShowMaintenance')->name('maintenance.show');
+         Route::post('/maintenance','SettingController@MaintenanceMode')->name('MaintenanceMode.set');
+         Route::get('/maintenance/setupcookie/{secret}','SettingController@setcookie')->name('createcookie');
 
-
+         });
 
 
  });
+
+
+
+
+
+
 
 
 

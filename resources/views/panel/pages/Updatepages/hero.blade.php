@@ -2,7 +2,11 @@
                       {{csrf_field()}}
 
 
-                      <?php $page = App\page::find(1);?>
+                      <?php $page = App\page::find(1);
+
+                         $check = $page->images()->exists();
+
+                      ?>
  <div class="form-group">
  <label style="font-size:125%;">Update Page</label>
  <br>
@@ -26,21 +30,21 @@
                             <label>Background Image</label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(0)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($check && $page->images()->wherePivot('id','=','0')->first()!==null  && $page->images()->wherePivot('id','=','0')->first()->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 
                             <label> Logo </label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(1)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($check && $page->images()->wherePivot('id','=','1')->first()!==null  && $page->images()->wherePivot('id','=','1')->first()->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 
                             <label> Logo on Sticky</label>
                                  <select name="Pageimage[]" class="form-control">
                                           @foreach($images as $image)
-                                                <option value="{{$image->id}}" @if($page->images()->exists() && $page->images->get(2)->id==$image->id) selected @endif >{{$image->name}}</option>
+                                                <option value="{{$image->id}}" @if($check && $page->images()->wherePivot('id','=','2')->first()!==null  && $page->images()->wherePivot('id','=','2')->first()->id==$image->id) selected @endif >{{$image->name}}</option>
                                            @endforeach
                                </select>
 

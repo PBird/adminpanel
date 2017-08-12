@@ -29,6 +29,8 @@ class PageController extends Controller
         return view('panel.pages.page_showall')->with('pages',$pages);
     }
 
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -109,7 +111,6 @@ class PageController extends Controller
                     }
 
                 }
-
 
 
         for($i=0;$i<$featurelength;$i++)

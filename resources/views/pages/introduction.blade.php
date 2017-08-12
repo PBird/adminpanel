@@ -8,9 +8,9 @@ else
 
 if($page->images()->exists())
 {
-     $mainimage= $page->images->get(0);
-     $subimage1 = $page->images->get(1);
-     $subimage2 = $page->images->get(2);
+     $mainimage= $page->images()->wherePivot('id','=','0')->first();
+     $subimage1 = $page->images()->wherePivot('id','=','1')->first();
+     $subimage2 = $page->images()->wherePivot('id','=','2')->first();
 }
 
 ?>
@@ -26,7 +26,7 @@ if($page->images()->exists())
             </div>
             <div class="row clearfix">
 
-            @if(isset($mainimage))
+            @if($mainimage!==null)
                 <div class="col span_1_of_2 steps-box">
 
 
@@ -54,10 +54,10 @@ if($page->images()->exists())
 
                     </div>
                 @endforeach
-                @if(isset($mainimage))
+                @if($subimage1!==null)
                     <a href="{{$page->buttons->first()->href}}" class="btn-app"> <img src="{{asset($subimage1->path)}}" alt="{{$subimage1->description}}">  </a>
                 @endif
-                @if(isset($mainimage))
+                @if($subimage2!==null)
                     <a href="{{$page->buttons->get(1)->href}}" class="btn-app"> <img src="{{asset($subimage2->path)}}" alt="{{$subimage2->description}}">  </a>
                 @endif
 

@@ -4,7 +4,7 @@
   $header = App\page::findOrFail(1);
 
  ?>
-        <header style="background-image: linear-gradient( rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) @if($header->images()->exists()) , url('{{$header->images->get(0)->path}}');@endif " >
+        <header style="background-image: linear-gradient( rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) @if($header->images()->exists() && $header->images()->wherePivot('id','=','0')->first()!==null ) , url('{{$header->images()->wherePivot('id','=','0')->first()->path}}');@endif " >
 
            @yield('header')
 

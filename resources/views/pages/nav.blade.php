@@ -2,11 +2,13 @@
 <?php
   $header = App\page::findOrFail(1);
 
+  $check = $header->images()->exists();
+
  ?>
                 <div class="row">
 
-                    <img  @if($header->images()->exists()) src="{{$header->images->get(1)->path}}"  alt="{{$header->images->get(1)->description}}" @endif class="logo" >
-                    <img @if($header->images()->exists()) src="{{$header->images->get(2)->path}}"   alt="{{$header->images->get(2)->description}}" @endif class="logo-black" >
+                    <img  @if($check && $header->images()->wherePivot('id','=','1')->first()!==null ) src="{{$header->images()->wherePivot('id','=','1')->first()->path}}"  alt="{{$header->images()->wherePivot('id','=','1')->first()->description}}" @endif class="logo" >
+                    <img @if($check && $header->images()->wherePivot('id','=','2')->first()!==null) src="{{$header->images()->wherePivot('id','=','2')->first()->path}}"   alt="{{$header->images()->wherePivot('id','=','2')->first()->description}}" @endif class="logo-black" >
 
                     <ul class="main-nav js--main-nav">
 

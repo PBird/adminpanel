@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->integer('template_id')->default(0);
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('placement')->unique()->nullable();
             $table->boolean('status');
             $table->timestamps();

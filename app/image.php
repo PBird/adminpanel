@@ -15,4 +15,15 @@ class image extends Model
                                 'description',
 
                            ];
+
+       public function pages() {
+
+        return $this->morphedByMany('App\page', 'imageable');
+
+    }
+     public function features() {
+
+        return $this->morphedByMany('App\feature', 'imageable');
+
+    }
 }

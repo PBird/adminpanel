@@ -18,7 +18,7 @@ class CreateIconsTable extends Migration
             $table->integer('feature_id')->unsigned()->nullable();;
             $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
             $table->string('name')->index()->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
